@@ -1,0 +1,44 @@
+[
+  {
+    "Id": "1",
+    "name": "Work",
+    "color": "blue",
+    "icon": "Briefcase",
+    "order": 0
+  },
+  {
+    "Id": "2",
+    "name": "Personal",
+    "color": "green",
+    "icon": "User",
+    "order": 1
+  },
+  {
+    "Id": "3",
+    "name": "Learning",
+    "color": "purple",
+    "icon": "BookOpen",
+    "order": 2
+  },
+  {
+    "Id": "4",
+    "name": "Health",
+    "color": "red",
+    "icon": "Heart",
+    "order": 3
+  },
+  {
+    "Id": "5",
+    "name": "Shopping",
+    "color": "yellow",
+    "icon": "ShoppingCart",
+    "order": 4
+  },
+  {
+    "Id": "6",
+    "name": "Home",
+    "color": "indigo",
+    "icon": "Home",
+    "order": 5
+  }
+]
