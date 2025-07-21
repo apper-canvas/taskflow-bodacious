@@ -1,16 +1,17 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { toast } from "react-toastify";
+import RecurringTaskModal from "@/components/molecules/RecurringTaskModal";
+import ApperIcon from "@/components/ApperIcon";
+import FormField from "@/components/molecules/FormField";
+import Select from "@/components/atoms/Select";
 import Input from "@/components/atoms/Input";
 import Button from "@/components/atoms/Button";
-import Select from "@/components/atoms/Select";
-import FormField from "@/components/molecules/FormField";
-import ApperIcon from "@/components/ApperIcon";
 import { taskService } from "@/services/api/taskService";
 import { categoryService } from "@/services/api/categoryService";
-
 const QuickAddTask = ({ onTaskAdded, categories = [] }) => {
   const [isExpanded, setIsExpanded] = useState(false);
+  const [showRecurringModal, setShowRecurringModal] = useState(false);
   const [taskData, setTaskData] = useState({
     title: "",
     description: "",
@@ -18,7 +19,6 @@ const QuickAddTask = ({ onTaskAdded, categories = [] }) => {
     priority: "medium",
     dueDate: "",
   });
-
   const handleQuickAdd = (e) => {
     e.preventDefault();
     if (!taskData.title.trim()) return;
@@ -142,7 +142,7 @@ const QuickAddTask = ({ onTaskAdded, categories = [] }) => {
                 </Select>
               </FormField>
 
-              <FormField label="Due Date">
+<FormField label="Due Date">
                 <Input
                   type="date"
                   value={taskData.dueDate}
@@ -150,9 +150,42 @@ const QuickAddTask = ({ onTaskAdded, categories = [] }) => {
                 />
               </FormField>
             </div>
+
+            <div className="flex justify-end pt-4 border-t border-gray-100">
+              <Button
+                type="button"
+                variant="secondary"
+                onClick={() => setShowRecurringModal(true)}
+                className="flex items-center space-x-2"
+              >
+                <ApperIcon name="Repeat" className="w-4 h-4" />
+                <span>Set as Recurring</span>
+              </Button>
+            </div>
           </motion.div>
         )}
       </form>
+
+      {showRecurringModal && (
+        <RecurringTaskModal
+          taskData={taskData}
+          categories={categories}
+          isOpen={showRecurringModal}
+          onClose={() => setShowRecurringModal(false)}
+          onTasksCreated={(tasks) => {
+            tasks.forEach(task => onTaskAdded?.(task));
+            setShowRecurringModal(false);
+            setTaskData({
+              title: "",
+              description: "",
+              categoryId: "",
+              priority: "medium",
+              dueDate: "",
+            });
+            setIsExpanded(false);
+          }}
+        />
+)}
     </motion.div>
   );
 };
