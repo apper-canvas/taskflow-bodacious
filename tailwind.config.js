@@ -6,15 +6,22 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        display: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
+        body: ['Inter', 'system-ui', 'sans-serif'],
+      },
       colors: {
         primary: {
           50: '#faf7ff',
           100: '#f4edff',
-          500: '#8B5CF6',
-          600: '#5B21B6',
+          300: '#a78bfa',
+          400: '#8b5cf6',
+          500: '#7c3aed',
+          600: '#6d28d9',
           700: '#4c1d95',
         },
         accent: {
+          50: '#fef3f2',
           400: '#fbbf24',
           500: '#F59E0B',
           600: '#d97706',
@@ -24,10 +31,6 @@ export default {
         warning: '#F59E0B',
         error: '#EF4444',
         info: '#3B82F6',
-      },
-      fontFamily: {
-        display: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
-        body: ['Inter', 'system-ui', 'sans-serif'],
       },
       animation: {
         'task-complete': 'taskComplete 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55)',
