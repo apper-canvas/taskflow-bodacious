@@ -8,14 +8,14 @@ const Header = ({ onSearch, completionRate = 0, totalTasks = 0, completedTasks =
   const greeting = currentHour < 12 ? "Good Morning" : currentHour < 18 ? "Good Afternoon" : "Good Evening";
 
   return (
-    <motion.header
-      className="bg-white border-b border-gray-200/50 px-6 py-4"
+<motion.header
+      className="bg-white border-b border-gray-200/50 px-8 py-6"
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
     >
       <div className="flex items-center justify-between">
-        <div className="flex items-center space-x-6">
+<div className="flex items-center space-x-8">
           <div>
             <h1 className="text-2xl font-bold gradient-text font-display">
               TaskFlow
@@ -26,7 +26,7 @@ const Header = ({ onSearch, completionRate = 0, totalTasks = 0, completedTasks =
           </div>
         </div>
 
-        <div className="flex items-center space-x-6">
+<div className="flex items-center space-x-8">
           <SearchBar 
             onSearch={onSearch}
             placeholder="Search tasks..."

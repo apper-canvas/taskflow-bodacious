@@ -1,9 +1,9 @@
-import { useState, useEffect, useMemo } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import TaskCard from "@/components/molecules/TaskCard";
-import Loading from "@/components/ui/Loading";
-import Error from "@/components/ui/Error";
+import React, { useEffect, useMemo, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import Empty from "@/components/ui/Empty";
+import Error from "@/components/ui/Error";
+import Loading from "@/components/ui/Loading";
+import TaskCard from "@/components/molecules/TaskCard";
 
 const TaskList = ({ 
   tasks = [], 
@@ -96,43 +96,44 @@ const TaskList = ({
     );
   }
 
-  return (
-    <div className="space-y-4">
-      <div className="flex items-center justify-between">
+return (
+    <div className="space-y-6">
+    <div className="flex items-center justify-between mb-2">
         <h2 className="text-lg font-semibold text-gray-900 font-display">
-          {selectedCategoryId 
-            ? categories.find(cat => cat.Id === selectedCategoryId)?.name || "Category"
-            : "All Tasks"
-          }
-          <span className="text-sm font-normal text-gray-500 ml-2">
-            ({filteredTasks.filter(task => !task.completed).length} active)
-          </span>
+            {selectedCategoryId ? categories.find(cat => cat.Id === selectedCategoryId)?.name || "Category" : "All Tasks"}
+            <span className="text-sm font-normal text-gray-500 ml-2">({filteredTasks.filter(task => !task.completed).length}active)
+                          </span>
         </h2>
-      </div>
-
-      <AnimatePresence mode="popLayout">
-        {filteredTasks.map((task, index) => (
-          <motion.div
-            key={task.Id}
-            layout
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.95 }}
-            transition={{ 
-              duration: 0.3,
-              delay: index * 0.05 
-            }}
-          >
-            <TaskCard
-              task={task}
-              categories={categories}
-              onTaskUpdated={handleTaskUpdated}
-              onTaskDeleted={handleTaskDeleted}
-            />
-          </motion.div>
-        ))}
-      </AnimatePresence>
     </div>
+    <div className="space-y-4">
+        <AnimatePresence mode="popLayout">
+            {filteredTasks.map((task, index) => <motion.div
+                key={task.Id}
+                layout
+                initial={{
+                    opacity: 0,
+                    y: 20
+                }}
+                animate={{
+                    opacity: 1,
+                    y: 0
+                }}
+                exit={{
+                    opacity: 0,
+                    scale: 0.95
+                }}
+                transition={{
+                    duration: 0.3,
+                    delay: index * 0.05
+                }}>
+                <TaskCard
+                    task={task}
+                    categories={categories}
+                    onTaskUpdated={handleTaskUpdated}
+                    onTaskDeleted={handleTaskDeleted} />
+            </motion.div>)}))
+                    </AnimatePresence>
+    </div></div>
   );
 };
 

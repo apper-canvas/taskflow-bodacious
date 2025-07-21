@@ -92,8 +92,8 @@ const Dashboard = () => {
           onShowAll={handleShowAll}
         />
         
-        <main className="flex-1 overflow-auto">
-          <div className="p-6 space-y-6">
+<main className="flex-1 overflow-auto">
+          <div className="p-8 space-y-8">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}

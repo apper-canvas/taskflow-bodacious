@@ -64,13 +64,13 @@ const QuickAddTask = ({ onTaskAdded, categories = [] }) => {
   };
 
   return (
-    <motion.div
-      className="bg-gradient-to-br from-white to-surface rounded-xl border border-gray-200/50 card-shadow p-6"
+<motion.div
+      className="bg-gradient-to-br from-white to-surface rounded-xl border border-gray-200/50 card-shadow p-8"
       layout
       transition={{ duration: 0.3 }}
     >
-      <form onSubmit={handleQuickAdd} className="space-y-4">
-        <div className="flex items-center space-x-3">
+<form onSubmit={handleQuickAdd} className="space-y-6">
+        <div className="flex items-center space-x-4">
           <div className="flex-1">
             <Input
               type="text"
@@ -105,7 +105,7 @@ const QuickAddTask = ({ onTaskAdded, categories = [] }) => {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            className="space-y-4 pt-4 border-t border-gray-100"
+className="space-y-6 pt-6 border-t border-gray-100"
           >
             <FormField label="Description">
               <Input
@@ -116,7 +116,7 @@ const QuickAddTask = ({ onTaskAdded, categories = [] }) => {
               />
             </FormField>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+<div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <FormField label="Category">
                 <Select
                   value={taskData.categoryId}
@@ -151,7 +151,7 @@ const QuickAddTask = ({ onTaskAdded, categories = [] }) => {
               </FormField>
             </div>
 
-            <div className="flex justify-end pt-4 border-t border-gray-100">
+<div className="flex justify-end pt-6 border-t border-gray-100">
               <Button
                 type="button"
                 variant="secondary"

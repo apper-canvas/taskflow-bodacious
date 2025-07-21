@@ -124,7 +124,7 @@ const RecurringTaskModal = ({ taskData, categories, isOpen, onClose, onTasksCrea
         exit={{ opacity: 0, scale: 0.9 }}
         className="bg-white rounded-xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto"
       >
-        <div className="p-6 border-b border-gray-200">
+<div className="p-8 border-b border-gray-200">
           <div className="flex items-center justify-between">
             <h2 className="text-xl font-semibold text-gray-900 flex items-center space-x-2">
               <ApperIcon name="Repeat" className="w-5 h-5" />
@@ -136,8 +136,8 @@ const RecurringTaskModal = ({ taskData, categories, isOpen, onClose, onTasksCrea
           </div>
         </div>
 
-        <div className="p-6 space-y-6">
-          <div className="bg-gray-50 p-4 rounded-lg">
+<div className="p-8 space-y-8">
+<div className="bg-gray-50 p-6 rounded-lg">
             <h3 className="font-medium text-gray-900 mb-2">Task Details</h3>
             <p className="text-sm text-gray-600">
               <strong>Title:</strong> {taskData.title || "No title"}
@@ -260,7 +260,7 @@ const RecurringTaskModal = ({ taskData, categories, isOpen, onClose, onTasksCrea
           )}
         </div>
 
-        <div className="p-6 border-t border-gray-200 flex justify-end space-x-3">
+<div className="p-8 border-t border-gray-200 flex justify-end space-x-4">
           <Button variant="secondary" onClick={onClose}>
             Cancel
           </Button>

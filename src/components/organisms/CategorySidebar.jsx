@@ -17,19 +17,19 @@ const CategorySidebar = ({
   const allTasksCount = tasks.filter(task => !task.completed).length;
 
   return (
-    <motion.aside
-      className="w-80 bg-gradient-to-br from-surface/30 to-white border-r border-gray-200/50 p-6"
+<motion.aside
+      className="w-80 bg-gradient-to-br from-surface/30 to-white border-r border-gray-200/50 p-8"
       initial={{ opacity: 0, x: -20 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.6, delay: 0.2 }}
     >
-      <div className="space-y-6">
+<div className="space-y-8">
         <div>
           <h2 className="text-lg font-semibold text-gray-900 mb-4 font-display">
             Categories
           </h2>
           
-          <div className="space-y-3">
+<div className="space-y-4">
             <CategoryCard
               category={{
                 Id: "all",
@@ -54,12 +54,12 @@ const CategorySidebar = ({
           </div>
         </div>
 
-        <div className="border-t border-gray-200 pt-6">
+<div className="border-t border-gray-200 pt-8">
           <h3 className="text-sm font-medium text-gray-700 mb-3 font-display">
             Quick Stats
           </h3>
           
-          <div className="space-y-3">
+<div className="space-y-4">
             <div className="flex items-center justify-between p-3 bg-white rounded-lg border border-gray-200/50">
               <div className="flex items-center space-x-2">
                 <div className="p-1.5 bg-success/10 rounded">

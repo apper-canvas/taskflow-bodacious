@@ -3,8 +3,8 @@ import ApperIcon from "@/components/ApperIcon";
 
 const CategoryCard = ({ category, taskCount, isActive, onClick }) => {
   return (
-    <motion.div
-      className={`group cursor-pointer rounded-xl p-4 transition-all duration-200 ${
+<motion.div
+      className={`group cursor-pointer rounded-xl p-5 transition-all duration-200 ${
         isActive 
           ? "bg-gradient-to-br from-primary-600 to-primary-500 text-white card-shadow-hover" 
           : "bg-white hover:bg-surface border border-gray-200/50 hover:card-shadow"
@@ -14,7 +14,7 @@ const CategoryCard = ({ category, taskCount, isActive, onClick }) => {
       whileTap={{ scale: 0.98 }}
     >
       <div className="flex items-center justify-between">
-        <div className="flex items-center space-x-3">
+<div className="flex items-center space-x-4">
           <div className={`p-2 rounded-lg ${
             isActive 
               ? "bg-white/20" 

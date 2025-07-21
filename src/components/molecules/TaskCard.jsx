@@ -61,8 +61,8 @@ const TaskCard = ({ task, categories = [], onTaskUpdated, onTaskDeleted }) => {
   };
 
   return (
-    <motion.div
-      className={`group bg-white rounded-xl border border-gray-200/50 p-4 transition-all duration-200 hover:card-shadow-hover ${
+<motion.div
+      className={`group bg-white rounded-xl border border-gray-200/50 p-5 transition-all duration-200 hover:card-shadow-hover ${
         task.completed ? "opacity-60" : ""
       } ${isOverdue ? "border-error/30 bg-red-50/30" : ""}`}
       layout
@@ -72,7 +72,7 @@ const TaskCard = ({ task, categories = [], onTaskUpdated, onTaskDeleted }) => {
       whileHover={{ scale: 1.01 }}
       transition={{ duration: 0.2 }}
     >
-      <div className="flex items-start space-x-3">
+<div className="flex items-start space-x-4">
         <div className="pt-1">
           <Checkbox
             checked={task.completed}
@@ -109,8 +109,8 @@ const TaskCard = ({ task, categories = [], onTaskUpdated, onTaskDeleted }) => {
             </Button>
           </div>
           
-          <div className="flex items-center justify-between mt-3">
-            <div className="flex items-center space-x-2">
+<div className="flex items-center justify-between mt-4">
+            <div className="flex items-center space-x-3">
               {category && (
                 <Badge variant="primary" className="text-xs">
                   <ApperIcon name={category.icon} className="w-3 h-3 mr-1" />

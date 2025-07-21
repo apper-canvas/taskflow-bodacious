@@ -9,25 +9,23 @@ const Empty = ({
   onAction,
   icon = "CheckCircle2"
 }) => {
-  return (
+return (
     <motion.div
-      className="flex flex-col items-center justify-center py-16 px-6"
+      className="flex flex-col items-center justify-center py-20 px-8"
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="bg-gradient-to-br from-primary-50 to-accent-50 rounded-full p-6 mb-6">
+      <div className="bg-gradient-to-br from-primary-50 to-accent-50 rounded-full p-8 mb-8">
         <ApperIcon name={icon} className="w-12 h-12 gradient-text" />
       </div>
-      
-      <h3 className="text-xl font-bold gradient-text mb-3">
+<h3 className="text-xl font-bold gradient-text mb-4">
         {title}
       </h3>
       
-      <p className="text-gray-600 text-center mb-8 max-w-md">
+      <p className="text-gray-600 text-center mb-10 max-w-md leading-relaxed">
         {description}
       </p>
-      
       {onAction && (
         <motion.div
           whileHover={{ scale: 1.05 }}
@@ -40,7 +38,7 @@ const Empty = ({
         </motion.div>
       )}
       
-      <div className="flex items-center space-x-6 mt-8 text-sm text-gray-500">
+<div className="flex items-center space-x-8 mt-12 text-sm text-gray-500">
         <div className="flex items-center space-x-2">
           <ApperIcon name="Zap" className="w-4 h-4" />
           <span>Quick Add</span>

@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
 
 const Loading = () => {
-  return (
-    <div className="space-y-6">
+return (
+    <div className="space-y-8">
       {/* Header skeleton */}
-      <div className="bg-gradient-to-br from-white to-surface rounded-xl border border-gray-200/50 p-6">
+      <div className="bg-gradient-to-br from-white to-surface rounded-xl border border-gray-200/50 p-8">
         <div className="flex items-center space-x-3">
           <div className="flex-1">
             <div className="h-4 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 rounded-full animate-shimmer relative overflow-hidden">
@@ -15,12 +15,12 @@ const Loading = () => {
         </div>
       </div>
 
-      {/* Task cards skeleton */}
-      <div className="space-y-4">
+{/* Task cards skeleton */}
+      <div className="space-y-6">
         {[...Array(6)].map((_, i) => (
           <motion.div
             key={i}
-            className="bg-white rounded-xl border border-gray-200/50 p-4"
+className="bg-white rounded-xl border border-gray-200/50 p-6"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: i * 0.1 }}
