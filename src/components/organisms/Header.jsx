@@ -1,8 +1,11 @@
 import { motion } from "framer-motion";
+import React, { useContext } from "react";
+import { useSelector } from "react-redux";
+import { AuthContext } from "../../App";
+import ApperIcon from "@/components/ApperIcon";
 import SearchBar from "@/components/molecules/SearchBar";
 import ProgressRing from "@/components/molecules/ProgressRing";
-import ApperIcon from "@/components/ApperIcon";
-
+import Button from "@/components/atoms/Button";
 const Header = ({ onSearch, completionRate = 0, totalTasks = 0, completedTasks = 0 }) => {
   const currentHour = new Date().getHours();
   const greeting = currentHour < 12 ? "Good Morning" : currentHour < 18 ? "Good Afternoon" : "Good Evening";
@@ -51,18 +54,48 @@ const Header = ({ onSearch, completionRate = 0, totalTasks = 0, completedTasks =
             </div>
           )}
           
-          <div className="flex items-center space-x-2">
-            <motion.div 
-              className="p-2 rounded-lg bg-gradient-to-br from-surface to-gray-50 hover:from-primary-50 hover:to-accent-50 transition-colors cursor-pointer"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <ApperIcon name="Bell" className="w-5 h-5 text-gray-600" />
-            </motion.div>
+<div className="flex items-center space-x-4">
+            <UserInfo />
+            <LogoutButton />
           </div>
-        </div>
+</div>
       </div>
     </motion.header>
+  );
+};
+
+const UserInfo = () => {
+  const { user } = useSelector((state) => state.user);
+  
+  if (!user) return null;
+  
+  return (
+    <div className="flex items-center space-x-3">
+      <div className="text-right">
+        <div className="text-sm font-medium text-gray-900">
+          {user.firstName} {user.lastName}
+        </div>
+        <div className="text-xs text-gray-500">
+          {user.emailAddress}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const LogoutButton = () => {
+  const { logout } = useContext(AuthContext);
+  
+  return (
+    <Button
+      variant="ghost"
+      size="sm"
+      onClick={logout}
+      className="flex items-center space-x-2 text-gray-600 hover:text-gray-900"
+    >
+      <ApperIcon name="LogOut" className="w-4 h-4" />
+      <span>Logout</span>
+    </Button>
   );
 };
 
